@@ -1,0 +1,39 @@
+name:       RSA
+category:   Cryptography
+version:    0.0.1
+build-type: Simple
+cabal-version: >= 2.0
+
+Library
+  hs-source-dirs:  src
+  default-language: Haskell2010
+  build-depends:   base,
+                   binary,
+                   bytestring,
+                   crypto-api,
+                   crypto-pubkey-types,
+                   SHA,
+                   containers,
+                   random
+  exposed-modules: RSA, Hashes, Primitives
+  GHC-Options:     -Wall -fno-warn-orphans
+
+test-suite test-rsa
+  type:           exitcode-stdio-1.0
+  default-language: Haskell2010
+  Main-Is:        Test.hs
+  hs-source-dirs: src,.
+  other-modules:  RSA, Hashes, Primitives
+  build-depends:  base,
+                  binary,
+                  bytestring,
+                  crypto-api,
+                  crypto-pubkey-types,
+                  QuickCheck,
+                  tagged,
+                  test-framework,
+                  test-framework-quickcheck2,
+                  SHA,
+                  containers,
+                  random
+  GHC-Options:    -Wall -fno-warn-orphans
